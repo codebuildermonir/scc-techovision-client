@@ -3,6 +3,11 @@ import Home from "../Pages/Home/Home";
 import MainLayout from "../Layout/MainLayout";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import Login from "../Pages/Login";
+import SignIn from "../Pages/SignIn";
+import Dashboard from "../Layout/Dashboard";
+import UserTask from "../Pages/Dashboard/UserTask";
+
 
 
 const myCreate = createBrowserRouter([
@@ -21,7 +26,25 @@ const myCreate = createBrowserRouter([
                   {
                         path:'/contact',
                         element:<Contact></Contact>
+                  },
+                  {
+                        path:'/login',
+                        element:<Login></Login>
+                  },
+                  {
+                        path:'/SignIn',
+                        element:<SignIn></SignIn>
                   }
+            ]
+      },
+      {
+            path:'/dashboard',
+            element:<Dashboard></Dashboard>,
+            children:[
+                   {
+                        path:'UserTask',
+                        element:<UserTask></UserTask>
+                  } 
             ]
       }
 

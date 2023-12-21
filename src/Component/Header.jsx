@@ -13,7 +13,7 @@ const Header = () => {
                   <p className="text-base">{`Project management involves planning, organizing, and overseeing the execution of a project from its initiation to completion. It is a systematic approach to achieve specific goals and meet certain success criteria within a specified timeframe.`}</p>
 
             <div className="navbar-start ">
-            <a className="btn  text-white   bg-[#FF014F] border-none hover:bg-[#FF014F] hover:-translate-y-1.5 uppercase ">{`Let’s Explore`}</a>
+            <a className="btn  text-white   bg-[#50C7FF] border-none hover:bg-[#50C7FF] hover:-translate-y-1.5 uppercase ">{`Let’s Explore`}</a>
             </div>
                  </div>
 

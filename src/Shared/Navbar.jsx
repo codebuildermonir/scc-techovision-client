@@ -2,47 +2,62 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
       const navItem= <>
-      <li className="md:text-lg z-40 text-[#FFFFFF] ">
+      <li className="md:text-lg font-semibold z-40 text-[#FFFFFF] ">
           <NavLink to={'/'} 
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " text-[#1091FF] underline " : ""
+          isPending ? "pending" : isActive ? " text-[#50C7FF] underline " : ""
           }
           >Home
           </NavLink>
       </li>
+      <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
+          <NavLink to={'/about'} 
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? " text-[#50C7FF] underline " : ""
+          }
+          >About
+          </NavLink>
+      </li>
 
-      <li className="md:text-lg z-40 text-[#FFFFFF] ">
+      <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
           <NavLink to={'/contact'} 
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " text-[#1091FF] underline " : ""
+          isPending ? "pending" : isActive ? " text-[#50C7FF] underline " : ""
           }
           >Contact
           </NavLink>
       </li>
 
-      <li className="md:text-lg z-40 text-[#FFFFFF] ">
-          <NavLink to={'/about'} 
+      <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
+          <NavLink to={'/dashboard'} 
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " text-[#1091FF] underline " : ""
+          isPending ? "pending" : isActive ? " text-[#50C7FF] underline " : ""
           }
-          >About
+          >Dashboard
           </NavLink>
       </li>
-      <li className="md:text-lg z-40 text-[#FFFFFF] ">
+
+     
+      
+       <button className="btn bg-[#89108B] border-[#50C7FF] hover:bg-[#50C7FF]  ">
+       <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
           <NavLink to={'/login'} 
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " text-[#1091FF] underline " : ""
+          isPending ? "pending" : isActive ? " text-[] underline " : ""
           }
           >Log-In
           </NavLink>
-      </li>
+       </li>
+            
+            
+            </button>
 
       </>
 
 
       return (
             <div>
-            <div className="navbar justify-center bg-[#060004]">
+            <div className="navbar justify-center bg-[#89108B]">
             <div className="navbar justify-center">
             <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +69,13 @@ const Navbar = () => {
             
             </ul>
             </div>
-            <a className="btn btn-ghost md:text-xl">MONIR HOSSAIN</a>
+            <div className="avatar">
+            <div className="w-16 rounded-full">
+            <img src="https://i.ibb.co/NmckNX5/to-do-logo-removebg-preview.png" />
+            </div>
+            </div>
+
+            <img src="" alt="" />
             </div>
             <div className="navbar hidden lg:flex">
             <ul className=" space-x-8 menu-horizontal px-1">
@@ -62,9 +83,9 @@ const Navbar = () => {
             {navItem}
             </ul>
             </div>
-            <div className="navbar-start hidden md:block ">
+           {/*  <div className="navbar-start hidden md:block ">
             <a className="btn  text-white   bg-[#FF014F] border-none hover:bg-[#FF014F] hover:-translate-y-1.5">DOWNLOAD MY CV</a>
-            </div>
+            </div> */}
             </div>
             </div>
       );
