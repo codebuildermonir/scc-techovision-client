@@ -1,6 +1,25 @@
+
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+
+    const{logOut,user}= useContext(AuthContext);
+
+    const handleLogOut=()=>{
+        logOut()
+        .then(result=>{
+            const userLogOut= result.user;
+            console.log(userLogOut)
+        })
+        .then(error=>{
+            console.log(error)
+        })
+    }
+
+
+
       const navItem= <>
       <li className="md:text-lg font-semibold z-40 text-[#FFFFFF] ">
           <NavLink to={'/'} 
@@ -28,18 +47,22 @@ const Navbar = () => {
           </NavLink>
       </li>
 
-      <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
-          <NavLink to={'/dashboard'} 
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " text-[#50C7FF] underline " : ""
-          }
-          >Dashboard
-          </NavLink>
-      </li>
+      {
+        user? <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
+        <NavLink to={'/dashboard'} 
+        className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? " text-[#50C7FF] underline " : ""
+        }
+        >Dashboard
+        </NavLink>
+    </li>: ' '
+      }
 
-     
-      
-       <button className="btn bg-[#89108B] border-[#50C7FF] hover:bg-[#50C7FF]  ">
+      {
+        user? <> <button onClick={handleLogOut} className="btn bg-[#89108B] border-[#50C7FF] border-2 hover:bg-[#50C7FF] hover:outline-none text-white ">Log-Out</button> </>
+        :
+         <>
+        <button className="btn bg-[#89108B] border-[#50C7FF] hover:bg-[#50C7FF]  ">
        <li className="md:text-lg z-40 font-semibold text-[#FFFFFF] ">
           <NavLink to={'/login'} 
           className={({ isActive, isPending }) =>
@@ -48,9 +71,15 @@ const Navbar = () => {
           >Log-In
           </NavLink>
        </li>
-            
-            
             </button>
+        
+        
+         </>
+      }
+
+     
+      
+       
 
       </>
 

@@ -1,13 +1,39 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
       const {register,handleSubmit,reset, formState: { errors },} = useForm();
+      const {createUser}= useContext(AuthContext)
+      const  location= useLocation();
+      const navigate=useNavigate()
 
       const onSubmit=(data)=>{
             console.log(data.email, data.name,data.password, data.image)
+            createUser(data.email, data.password)
+            .then(res=>{
+                  console.log(res.user)
+                  Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your account create success",
+                        showConfirmButton: false,
+                        timer: 2500
+                  }); 
 
-            reset()
+                  navigate(location?.state?location.state:'/ ')
+                  reset()
+            })
+            .catch(error=>{
+                  console.log(error)
+
+            })
+
+
+
+            
 
       }
 
@@ -71,3 +97,4 @@ const SignIn = () => {
 };
 
 export default SignIn;
+

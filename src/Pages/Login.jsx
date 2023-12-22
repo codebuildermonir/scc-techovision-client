@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link,useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Component/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
+      const{singIn}=useContext(AuthContext)
+      const  location= useLocation();
+      const navigate=useNavigate()
 
       const handleLogIn= (e)=>{
             e.preventDefault()
@@ -10,6 +16,24 @@ const Login = () => {
             const email = from.email.value;
             const password= from.password.value;
             console.log(email, password)
+
+            singIn(email, password)
+            .then(res=>{
+                  console.log(res.user)
+
+                   Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Log-In success",
+                        showConfirmButton: false,
+                        timer: 2500
+                  }); 
+                  navigate(location?.state?location.state:'/ ')
+                  
+            })
+            .then(error=>{
+                  console.lo(error)
+            })
             
       }
       return (

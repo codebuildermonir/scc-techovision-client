@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import SignIn from "../Pages/SignIn";
 import Dashboard from "../Layout/Dashboard";
 import UserTask from "../Pages/Dashboard/UserTask";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 
 
@@ -39,7 +40,7 @@ const myCreate = createBrowserRouter([
       },
       {
             path:'/dashboard',
-            element:<Dashboard></Dashboard>,
+            element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
             children:[
                    {
                         path:'UserTask',
