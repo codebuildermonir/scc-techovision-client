@@ -8,7 +8,7 @@ const Statistic = () => {
                   <div className=" flex flex-col md:flex-row justify-center gap-4 text-[#17222B] " >
 
                   <div className="border-2 border-white p-8 rounded-lg mx-auto md:mx-0 " >
-                              <h1 className="flex items-center gap-2 text-4xl text-[#50C7FF] font-bold">5K</h1>
+                              <h1 className="flex items-center  gap-2 text-4xl text-[#50C7FF] font-bold">5K</h1>
                               <h1 className="font-semibold text-2xl text-white text-center">Student</h1>
                         </div>
 
